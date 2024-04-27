@@ -8,7 +8,7 @@ const NavBar = () => {
     const [search, setSearch] = useState("")
     const navigate = useNavigate()
     const homeClick = () => {
-        navigate('/posts')
+        navigate('/')
     }
     const createClick = () => {
         navigate('/create')

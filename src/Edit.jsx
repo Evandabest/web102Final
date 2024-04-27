@@ -41,14 +41,28 @@ const Update = ({supabase}) => {
         }));
     }
 
-    const deletePost = async () => {
+    /*const deletePost = async () => {
         try {
           await supabase.from("posts").delete().eq("id", params.id);
-          navigate("/posts");
+          navigate("/");
         } catch (error) {
           console.error("Error deleting post:", error);
         }
       };
+      */
+
+    const deletePost = async () => {
+        try {
+            const { data, error } = await supabase.from("posts").delete().match({ id: params.id });
+            if (error) throw error;
+            alert("Post successfully deleted.");
+            navigate("/");
+        } catch (error) {
+            console.error("Error deleting post:", error);
+            alert("Failed to delete post.");
+        }
+    };
+    
     
     
     
@@ -96,7 +110,7 @@ const Update = ({supabase}) => {
             <>
             <div className="flex flex-col bg-[#D3D0CB] rounded-md mt-2 mx-2 md:mx-12 lg:mx-40">
                 <h1 className="my-2">Edit your post</h1>
-                <form className=" mx-2 items-center" onSubmit={handleSubmit}>
+                <form className="items-center mx-2 " onSubmit={handleSubmit}>
                     <input
                         id="user"
                         name="user"
@@ -111,7 +125,7 @@ const Update = ({supabase}) => {
                         id="title"
                         name="title"
                         type="text"
-                        className="m-auto flex mt-4 w-full rounded-md"
+                        className="flex w-full m-auto mt-4 rounded-md"
                         onChange={handleInputChange}
                         value={post.title}
                         placeholder="Title"
@@ -121,7 +135,7 @@ const Update = ({supabase}) => {
                         id="content"
                         name="content"
                         type="text"
-                        className="m-auto flex mt-4 w-full rounded-md"
+                        className="flex w-full m-auto mt-4 rounded-md"
                         onChange={handleInputChange}
                         value={post.content}
                         placeholder="Content"
@@ -130,16 +144,16 @@ const Update = ({supabase}) => {
                         id="imgUrl"
                         name="img"
                         type="text"
-                        className="m-auto flex mt-4 w-full rounded-md"
+                        className="flex w-full m-auto mt-4 rounded-md"
                         onChange={handleInputChange}
                         value={post.img}
                         placeholder="Image Url"
                     />
                     <input
-                        id="pass"
-                        name="pass"
+                        id="postPass"
+                        name="postPass"
                         type="pass"
-                        className="m-auto flex mt-4 w-full rounded-md"
+                        className="flex w-full m-auto mt-4 rounded-md"
                         onChange={handleInputChange}
                         value={post.postPass}
                         placeholder="password"

@@ -23,7 +23,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path = "/" element = {<Home supabase = {supabase}/>}/>
         <Route path = "/create" element = {<Create supabase = {supabase}/>}/>
-        <Route path = "/posts" element = {<Home supabase = {supabase}/>}/>
         <Route path = "/posts/:id" element = {<Post supabase = {supabase}/>}/>
         <Route path = "/posts/edit/:id" element = {<Update supabase = {supabase}/>}/>
         <Route path = "/results/:search" element = {<Results supabase = {supabase}/>}/>

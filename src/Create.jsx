@@ -45,7 +45,7 @@ const Create = ({ supabase }) => {
         <>      
             <div className="flex flex-col bg-[#D3D0CB] rounded-md mt-2 mx-2 md:mx-12 lg:mx-40">
                 <h1 className="my-2">Create a post</h1>
-                <form className=" mx-2 items-center" onSubmit={handleSubmit}>
+                <form className="items-center mx-2 " onSubmit={handleSubmit}>
                     <input
                         id="user"
                         name="user"
@@ -60,7 +60,7 @@ const Create = ({ supabase }) => {
                         id="title"
                         name="title"
                         type="text"
-                        className="m-auto flex mt-4 w-full rounded-md"
+                        className="flex w-full m-auto mt-4 rounded-md"
                         onChange={handleInputChange}
                         value={form.title}
                         placeholder="Title"
@@ -70,7 +70,7 @@ const Create = ({ supabase }) => {
                         id="content"
                         name="content"
                         type="text"
-                        className="m-auto flex mt-4 w-full rounded-md"
+                        className="flex w-full m-auto mt-4 rounded-md"
                         onChange={handleInputChange}
                         value={form.content}
                         placeholder="Content (Optional)"
@@ -79,7 +79,7 @@ const Create = ({ supabase }) => {
                         id="imgUrl"
                         name="img"
                         type="text"
-                        className="m-auto flex mt-4 w-full rounded-md"
+                        className="flex w-full m-auto mt-4 rounded-md"
                         onChange={handleInputChange}
                         value={form.img}
                         placeholder="Image Url (Optional)"
@@ -88,7 +88,7 @@ const Create = ({ supabase }) => {
                         id="password"
                         name="postPass"
                         type="pass"
-                        className="m-auto flex mt-4 w-full rounded-md"
+                        className="flex w-full m-auto mt-4 rounded-md"
                         onChange={handleInputChange}
                         value={form.postPass}
                         placeholder="Password"
